@@ -28,7 +28,6 @@ public class FileInputStream1_1 {
 		}
 		
 		
-		//2 예외 처리: 2개의 예외에 대해서 한번에 처리
 		try {
 			if (is!=null) {
 				is.close();
@@ -37,6 +36,7 @@ public class FileInputStream1_1 {
 			
 		}
 		
+		//2 예외 처리: 2개의 예외에 대해서 한번에 처리
 		InputStream is2=null;
 		int data2=0;
 		try {

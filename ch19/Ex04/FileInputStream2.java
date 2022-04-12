@@ -11,6 +11,7 @@ public class FileInputStream2 {
 	public static void main(String[] args) throws IOException {
 		//1 입력 파일 생성
 		File inFile=new File("ch19\\Ex04\\FileInputStream1.txt");
+		
 		InputStream is=null;//객체 선언 //finally 블록에서 close()를 사용하기 위해
 		
 		//2. #1 byte 단위 읽기 (한 바이트씩 읽어서 처리)

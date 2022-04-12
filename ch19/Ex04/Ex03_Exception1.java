@@ -16,7 +16,7 @@ import ch14.Ex04.TryWithResource1;
 
 //파일인풋스트림으로 읽어서 출력
 
-public class Ex3_Exception1 {
+public class Ex03_Exception1 {
 	public static void main(String[] args) {
 		File ms=new File("C:\\Users\\kosmo\\OneDrive - 유한대학교\\박장우T\\java\\kosmo_r\\src\\ch19\\Ex04\\exceptionMS949.txt");
 		File utf=new File("ch19/Ex04/exceptionUTF8.txt");
