@@ -20,36 +20,67 @@ import java.util.Scanner;
 
 public class Ex06_ConsoleInputOutputObject {
 	public static void main(String[] args) throws IOException  {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("한글 입력 >>");
-		File file=new File("ch19/Ex06/input.txt");
-		InputStream is=null;
-		OutputStream os=System.out;
-		
-		os=new FileOutputStream(file);
-		byte[] byteArray1=new byte[100];
-		byteArray1=scanner.nextLine().getBytes();
-	
-		os.write(byteArray1);
-		os.flush();
-	
-		
-		byte[] byteArray2=new byte[100];
-		int count;
-		
-		is = new FileInputStream(file);
-		while ((count=is.read(byteArray2))!=-1) { 
-			System.out.println(new String(byteArray2,Charset.defaultCharset()));
-		}
-		
-		os.close();
-		is.close();
+//		Scanner scanner=new Scanner(System.in);
+//		System.out.println("한글 입력 >>");
+//		File file=new File("ch19/Ex06/input.txt");
+//		InputStream is=null;
+//		OutputStream os=null;
+//		
+//		os=new FileOutputStream(file);
+//		byte[] byteArray1=new byte[100];
+//		byteArray1=scanner.nextLine().getBytes();
+//	
+//		os.write(byteArray1);
+//		os.flush();
+//	
+//		
+//		byte[] byteArray2=new byte[100];
+//		int count;
+//		
+//		is = new FileInputStream(file);
+//		while ((count=is.read(byteArray2))!=-1) { 
+//			System.out.println(new String(byteArray2,Charset.defaultCharset()));
+//		}
+//		
+//		os.close();
+//		is.close();
 				
 		
 		
 		
-	
 		
+		//1 콘솔에서 한글 입력 받기 (System.in) <=byte[] 배열을 생성해서 한글을 처리함.
+		InputStream ips=System.in; //new로 생성하지 않고 연결만 설정, 콘솔에서 입력 값을 받음
+		System.out.println("한글을 입력 하세요 >>");
+		
+		byte[] arr1=new byte[100];
+		int count1=ips.read(arr1); //arr1에 byte로 \r,\n을 포함한 전체가 들어감. count1: 배열 안에 값이 들어간 개수
+		//int data=ips.read(); //한글을 처리하지 못한다. data에는 1byte read한 값이 저장
+		
+		//2 입력받은 한글을 파일에 저장하기. (FileOutputStream)
+		File f1=new File("ch19\\Ex06\\input.txt");
+		OutputStream fos=new FileOutputStream(f1); //덮어쓰기
+		
+		fos.write(arr1); //버퍼(RAM)에만 쓰여짐
+		fos.flush(); //버퍼에 쓰인 내용을 파일에 쓰기
+		
+		//3 저장된 파일에서 값을 읽기. (FileInputStream)
+		InputStream fis=new FileInputStream(f1); //read(): 한글을 처리하지 못함. read(byte[]): 한글 처리 가능
+		byte[] arr2=new byte[100];
+		
+		int count2=fis.read(arr2); //read(byte[]): 배열 단위로 읽는다
+//		int data2=fis.read(); //read(): 1byte씩 읽는다
+		
+		//4 읽어온 배열을 콘솔에 출력 하기. (System.out)
+		OutputStream ops=System.out; //콘솔에 출력: byte[]
+		
+		ops.write(arr2);
+		ops.flush();
+		
+		ips.close();
+		fis.close();
+		fos.close();
+		ops.close();
 		
 	}
 }
