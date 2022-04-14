@@ -1,0 +1,5 @@
+PrintWriter Ex1
+13
+5.8
+Hello Nice 
+7,HiThx 3.700000

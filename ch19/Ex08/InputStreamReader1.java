@@ -12,6 +12,9 @@ import java.io.Reader;
 	//byte 포맷은 인코딩을 잘 지정해야 함
 	//char 포멧으로 바꾸면 인코딩 타입을 신경쓰지 않아도 됨
 
+	//사용 목적 
+		//1 FileReader: default charset만 사용 가능, 현재 default charset(MS949)과 외부 파일(UTF-8)의 인코딩이 다른 경우
+		//2 네트워크에서 전송되는 스트림이 UTF-8, MS949
 
 public class InputStreamReader1 {
 	public static void main(String[] args) {

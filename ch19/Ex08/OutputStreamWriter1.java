@@ -17,6 +17,10 @@ public class OutputStreamWriter1 {
 		File osw1=new File("ch19/Ex08/osw1.txt"); //MS949
 		File osw2=new File("ch19/Ex08/osw2.txt"); //UTF-8
 		
+		//이클립스 외부에 저장하면 잘 적용됨
+//		File osw1=new File("C:/Temp/osw1.txt"); //MS949
+//		File osw2=new File("C:/Temp/osw2.txt"); //UTF-8
+		
 		try (Writer writer=new FileWriter(osw1);) {
 			writer.write("OutputStreamWriter1 예제 파일입니다.\n".toCharArray()); //String을 char[]에 저장
 			writer.write("한글과 영문이 모두 포함되어 있습니다."); //string
